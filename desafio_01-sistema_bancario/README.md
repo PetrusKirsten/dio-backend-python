@@ -15,6 +15,7 @@ Funcionalidades principais:
 - **Segurança** (validações, tratamento de erros)
 
 Essa é a oportunidade perfeita para:
+
 - Aprimorar suas habilidades em Python  
 - Entender conceitos de segurança e lógica financeira  
 - Praticar organização de código e testes automatizados  

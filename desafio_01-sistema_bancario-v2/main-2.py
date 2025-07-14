@@ -1,6 +1,24 @@
+# desafio_01-sistema_bancario/main.py
+
+def menu():
+
+    menu = '''\n
+==========================
+        KIRSTEN BANK       
+==========================
+[1]\tDepositar
+[2]\tSacar
+[3]\tExtrato
+[0]\tSair
+==========================
+>> Escolha uma opção: '''
+    
+    return input(menu).strip()
+
 
 def main():
     
+    AGENCIA = "0001"
     LIMITE_DE_SAQUES = 3
 
     saldo         = 0
@@ -8,19 +26,8 @@ def main():
     limite_saque  = 500
     numero_saques = 0
 
-    menu = '''
-==========================
-    SISTEMA BANCÁRIO
-==========================
-[1] Depositar
-[2] Sacar
-[3] Extrato
-[0] Sair
-==========================
->> Escolha uma opção: '''
-
     while True:
-        opcao = input(menu)
+        opcao = menu()
     
         if opcao == "1":
             valor = float(input("\n>> Informe o valor do depósito: R$"))
@@ -65,14 +72,14 @@ def main():
                       "* Informe um valor maior que zero.")
         
         elif opcao == "3":
-            menu_extrato = '''
-========================== 
-   EXTRATO
-==========================
+            menu_extrato = '''\n
+-------------------------- 
+EXTRATO
+--------------------------
 {extrato}
 --------------------------
 Saldo: R$ {saldo:.2f}
-=========================='''
+--------------------------'''
 
             print(menu_extrato.format(saldo=saldo, extrato=extrato if extrato else "\nNenhum lançamento realizado\n"))
 
@@ -82,6 +89,8 @@ Saldo: R$ {saldo:.2f}
         
         else:
             print("\n* Opção inválida. Por favor, escolha uma opção válida.")
+
+    menu()
 
 
 if __name__ == "__main__":
