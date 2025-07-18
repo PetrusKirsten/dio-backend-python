@@ -1,4 +1,4 @@
-# desafio_03-sistema_bancario-v3/main-teste.py
+# desafio_03-sistema_bancario-v3/pre-main.py
 
 from abc import ABC, abstractclassmethod, abstractproperty
 from datetime import datetime
