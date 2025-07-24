@@ -7,6 +7,17 @@ from abc import ABC, abstractclassmethod, abstractproperty
 # classes para representar clientes e contas bancárias
 # ----------------------------------------------------
 
+class ContaIterador:
+    def __init__(self, contas):
+        self.contas = contas
+
+    def __iter__(self):
+        return self
+
+    def __next__(self):
+        pass
+
+
 class Cliente:
     """Classe base para representar um cliente do banco.
     Esta classe pode ser estendida para diferentes tipos de clientes,
@@ -19,6 +30,11 @@ class Cliente:
         return f"Cliente com endereço: {self.endereço}, Contas: {len(self.contas)}"
     
     def realizar_transacao(self, conta, transacao):
+        
+        if len(conta.historico.get_transacoes()) >= 10:
+            print("\n ** Você excedeu o número de transações permitidas para hoje! **")
+            return
+        
         transacao.registrar(conta)
     
     def adicionar_conta(self, conta):
@@ -168,10 +184,33 @@ class Historico:
         return self._transacoes
 
     def adicionar_transacao(self, transacao):
+
         self._transacoes.append({
                 "tipo"  : transacao.__class__.__name__,
                 "valor" : transacao.valor,
-                "data"  : datetime.now().strftime("%Y-%m-%d %H:%M:%S")})
+                "data"  : datetime.utcnow().strftime("%d-%m-%Y %H:%M:%S")})
+
+    def get_relatorio(self, tipo_transacao=None):
+
+        if tipo_transacao:
+            return True
+        
+        return None
+
+    def get_transacoes(self):
+        """ Retorna as transações do dia """
+
+        data_atual = datetime.utcnow().date()
+        transacoes = []
+
+        for transacao in self._transacoes:
+            data_transacao = datetime.strptime(transacao['data'],
+                                               "%d-%m-%Y %H:%M:%S").date()
+            
+            if data_atual == data_transacao:
+                transacoes.append(transacao)
+            
+        return transacoes
 
 
 class Transacao(ABC):

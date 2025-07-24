@@ -12,7 +12,8 @@ from decorators import log_transacao as log
 # sistema bancário interativo
 # ---------------------------
 
-# ------- funções do menu
+
+# ------- Funções do menu
 
 def filtrar_cliente(cpf, clientes):
     """Filtra o cliente pelo CPF."""
@@ -93,7 +94,8 @@ def exibir_extrato(clientes):
     print("\n----------------------------------") 
     print("EXTRATO BANCÁRIO") 
     print("----------------------------------") 
-          
+    
+    # TODO: implementar o gerador definido em Historico
     transacoes = conta.historico.transacoes
     extrato = ""
 
@@ -101,7 +103,7 @@ def exibir_extrato(clientes):
         extrato = "\nNenhum lançamento realizado\n"
     else:
         for transacao in transacoes:
-            extrato += (f"\n{transacao['data']} - {transacao['tipo']}: R$ {transacao['valor']:.2f}")
+            extrato += (f"\n{transacao['data']} | {transacao['tipo']}: R$ {transacao['valor']:.2f}")
 
     print(extrato)
     print("\n----------------------------------")
@@ -147,40 +149,42 @@ def criar_conta(numero_conta, clientes, contas):
 
 
 def listar_contas(contas):
+    # TODO: alternar implementação para usar a classe ContaIterador
+
     for conta in contas:
         print("\n----------------------------------")
         print(textwrap.dedent(str(conta)))
         print("----------------------------------")
-        # print(f"Conta {conta.numero} "
-        #       f"- Agência {conta.agencia} "
-        #       f"- Cliente: {conta.cliente.nome} "
-        #       f"- Saldo: R$ {conta.saldo:.2f}")
 
-# Layout do menu
+# ------- Layout do menu
+
 def menu():
 
     menu = """\n
-╔═════════════════════════════════╗
-║         KIRSTEN BANK            ║
-╠═════════════════════════════════╣
-║ [1]  Depositar                  ║
-║ [2]  Sacar                      ║
-║ [3]  Extrato                    ║
-║ [4]  Criar Usuário              ║
-║ [5]  Criar Conta                ║
-║ [6]  Listar Contas              ║
-╠═════════════════════════════════╣
-║ [0]  Sair                       ║
-╚═════════════════════════════════╝
+╔═════════════════════════════════════════╗
+║               KIRSTEN BANK              ║
+╠═════════════════════════════════════════╣
+║                                         ║
+║     [1]  Depositar                      ║
+║     [2]  Sacar                          ║
+║     [3]  Extrato                        ║
+║     [4]  Criar Usuário                  ║
+║     [5]  Criar Conta                    ║
+║     [6]  Listar Contas                  ║
+║                                         ║
+╠═════════════════════════════════════════╣
+║     [0]  Sair                           ║
+╚═════════════════════════════════════════╝
+
 >> Escolha uma opção: """
     
     return input(menu).strip()
 
 
-# Função principal
+# ------- Função principal
+
 def main():
     """Função principal que executa o sistema bancário."""
-
     clientes = []
     contas   = []
         
@@ -189,15 +193,15 @@ def main():
         opcao = menu()
     
         if opcao == "1":
-            print("\n** Depósito **")
+            # print("\n** Depósito **")
             depositar(clientes)
 
         elif opcao == "2":
-            print("\n** Saque **")
+            # print("\n** Saque **")
             sacar(clientes)
 
         elif opcao == "3":
-            print("\n** Extrato **")
+            # print("\n** Extrato **")
             exibir_extrato(clientes)
             
         elif opcao == "4":
@@ -208,7 +212,7 @@ def main():
             criar_conta(numero_conta, clientes, contas)
 
         elif opcao == "6":
-            print("\n** Listar Contas **")
+            # print("\n** Listar Contas **")
             listar_contas(contas)
 
         elif opcao == "0":
@@ -223,4 +227,5 @@ def main():
 
 
 if __name__ == "__main__":
+
     main()
