@@ -1,4 +1,4 @@
-# desafio_04-sistema_bancario-v3/main-2.py
+# desafio_04-sistema_bancario_decoradores/sistema.py
 
 from datetime import datetime
 from abc import ABC, abstractclassmethod, abstractproperty
@@ -31,7 +31,7 @@ class Cliente:
     
     def realizar_transacao(self, conta, transacao):
         
-        if len(conta.historico.get_transacoes()) >= 10:
+        if len(conta.historico.get_transacoes()) >= 2:
             print("\n ** Você excedeu o número de transações permitidas para hoje! **")
             return
         
@@ -144,9 +144,11 @@ class ContaCorrente(Conta):
         self.limite           = limite
     
     def __str__(self):
-        return (f"Conta Corrente {self.numero} - Agência {self.agencia}\n"
-                f"Cliente: {self.cliente.nome}, Saldo: R$ {self.saldo:.2f}, "
-                f"Limite: R$ {self.limite:.2f}, Saques: {self.limite_de_saques}")
+        return (f"Agência {self.agencia} - Conta Corrente {self.numero}\n"
+                f"Cliente: {self.cliente.nome}\n"
+                f"Saldo:   R$ {self.saldo:.2f}\n"
+                f"Limite:  R$ {self.limite:.2f}\n"
+                f"Saques:  {self.limite_de_saques}")
 
     def sacar(self, valor):
         """

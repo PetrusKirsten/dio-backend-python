@@ -1,4 +1,5 @@
-# desafio_04-sistema_bancario-v3/app.py
+# desafio_04-sistema_bancario_decoradores/app.py
+
 import textwrap
 
 from sistema import (PessoaFisica, 
@@ -152,9 +153,10 @@ def listar_contas(contas):
     # TODO: alternar implementação para usar a classe ContaIterador
 
     for conta in contas:
-        print("\n----------------------------------")
-        print(textwrap.dedent(str(conta)))
-        print("----------------------------------")
+        print()
+        print("╔═════════════════════════════════════════╗")
+        print(f"\n{textwrap.dedent(str(conta))}\n")
+        print("╚═════════════════════════════════════════╝")
 
 # ------- Layout do menu
 
