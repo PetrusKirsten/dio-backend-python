@@ -148,7 +148,7 @@ class ContaCorrente(Conta):
         self.limite           = limite
     
     def __str__(self):
-        return (f"Agência {self.agencia} - Conta Corrente {self.numero}\n"
+        return (f"Agência  {self.agencia} - Conta Corrente {self.numero}\n"
                 f"Cliente: {self.cliente.nome}\n"
                 f"Saldo:   R$ {self.saldo:.2f}\n"
                 f"Limite:  R$ {self.limite:.2f}\n"
@@ -156,11 +156,7 @@ class ContaCorrente(Conta):
 
     def __repr__(self):
 
-        return f"""\
-            Agência:\t{self.agencia}
-            CPF:\t\t{self.cpf}
-            Titular:\t{self.cliente.nome}
-        """
+        return f"Agência: {self.agencia} CPF: {self.cliente.cpf} Titular:\t{self.cliente.nome}"
     
 
     def sacar(self, valor):

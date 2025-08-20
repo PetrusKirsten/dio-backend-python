@@ -14,6 +14,8 @@ def log_transacao(func):
         hora        = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         log = f'╔══ [{hora}] {nome_funcao} ══╗'
 
+        # TODO: alterar a implementação para salvar em arquivo
+
         print()
         print(f'{log}')
         print(f'╚' + '═'*(len(log) - 2) + '╝\n')

@@ -1,0 +1,10 @@
+[2025-07-31 18:12:31] Funcao: CRIAR_CLIENTE ( '*args': ([<Pessoafisica: (14214473710)>],) | '**kwargs': {} ) -> None
+[2025-07-31 18:12:43] Funcao: CRIAR_CONTA ( '*args': (1, [<Pessoafisica: (14214473710)>], [Agência: 0001 CPF: 14214473710 Titular:	Petrus Kirsten]) | '**kwargs': {} ) -> None
+[2025-07-31 18:13:00] Funcao: DEPOSITAR ( '*args': ([<Pessoafisica: (14214473710)>],) | '**kwargs': {} ) -> None
+[2025-07-31 18:13:43] Funcao: SACAR ( '*args': ([<Pessoafisica: (14214473710)>],) | '**kwargs': {} ) -> None
+[2025-07-31 18:14:50] Funcao: CRIAR_CLIENTE ( '*args': ([<Pessoafisica: (1)>],) | '**kwargs': {} ) -> None
+[2025-07-31 18:14:53] Funcao: CRIAR_CONTA ( '*args': (1, [<Pessoafisica: (1)>], [Agência: 0001 CPF: 1 Titular:	teste]) | '**kwargs': {} ) -> None
+[2025-07-31 18:17:28] Funcao: CRIAR_CLIENTE ( '*args': ([<Pessoafisica: (1)>],) | '**kwargs': {} ) -> None
+[2025-07-31 18:18:13] Funcao: CRIAR_CLIENTE ( '*args': ([<Pessoafisica: (1)>, <Pessoafisica: (14214473710)>],) | '**kwargs': {} ) -> None
+[2025-07-31 18:18:20] Funcao: CRIAR_CONTA ( '*args': (2, [<Pessoafisica: (1)>, <Pessoafisica: (14214473710)>], [Agência: 0001 CPF: 1 Titular:	teste, Agência: 0001 CPF: 14214473710 Titular:	Petrus Kirsten]) | '**kwargs': {} ) -> None
+[2025-07-31 18:18:27] Funcao: DEPOSITAR ( '*args': ([<Pessoafisica: (1)>, <Pessoafisica: (14214473710)>],) | '**kwargs': {} ) -> None
